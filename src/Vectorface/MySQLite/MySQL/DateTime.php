@@ -51,4 +51,20 @@ trait DateTime
 
         return strtotime($date);
     }
+
+    /**
+     * FROM_UNIXTIME - returns a date /datetime from a version of unix_timestamp
+     *
+     * @param string $date The unit timestamp.
+     * @param string $format Optional format string
+     * @return datetime Date Time from timestamp.
+     */
+    public static function mysql_from_unixtime($date, $format = null)
+    {
+        if (!isset($format)) {
+            $format = 'YYYYY-MM-DD HH:MM:SS';
+        }
+
+        return strftime($format, $date);
+    }
 }
