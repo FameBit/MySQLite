@@ -186,7 +186,5 @@ class MySQLiteTest extends PHPUnit_Framework_TestCase
     {
         $this->assertEquals('2016-02-05T19:33:57+0000', MySQLite::mysql_from_unixtime(1454700837));
         $this->assertEquals('2008-10-22T18:40:37+0000', MySQLite::mysql_from_unixtime(1224700837));
-        $this->assertEquals('February', MySQLite::mysql_from_unixtime(1454700837, '%M'));
-        $this->assertEquals('2008', MySQLite::mysql_from_unixtime(1224700837, '%Y'));
     }
 }
