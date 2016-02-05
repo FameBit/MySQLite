@@ -51,4 +51,53 @@ trait DateTime
 
         return strtotime($date);
     }
+    
+    /**
+     * FROM_UNIXTIME - returns a date /datetime from a version of unix_timestamp
+     *
+     * @param string $date The unit timestamp.
+     * @param string $format Optional format string
+     * @return datetime Date Time from timestamp.
+     */
+    public static function mysql_from_unixtime($date, $format = null)
+    {
+        if (!isset($format)) {
+            $format = \DateTime::ISO8601;
+        }
+
+        return (new \DateTime())->setTimestamp($date)->format($format);
+
+    }
+
+    /**
+     * YEAR - returns the year from a date
+     *
+     * @param datetime $date date to get year from
+     * @return int year from $date
+     */
+    public static function mysql_year($date)
+    {
+        if (!isset($date)) {
+            return 0;
+        }
+
+        return (new \DateTime($date))->format("Y");
+
+    }
+
+    /**
+     * MONTH - returns the month from a date
+     *
+     * @param datetime $date date to get year from
+     * @return int month from $date
+     */
+    public static function mysql_month($date)
+    {
+        if (!isset($date)) {
+            return 0;
+        }
+
+        return (new \DateTime($date))->format("m");
+
+    }
 }
