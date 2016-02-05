@@ -7,7 +7,7 @@ engines:
       - ruby
       - javascript
       - python
-      - php
+      php:
         mass_threshold: 20
   fixme:
     enabled: true
