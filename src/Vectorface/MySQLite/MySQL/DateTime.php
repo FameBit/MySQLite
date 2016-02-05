@@ -84,4 +84,20 @@ trait DateTime
         return (new DateTime($date))->format("Y");
 
     }
+
+    /**
+     * MONTH - returns the month from a date
+     *
+     * @param datetime $date date to get year from
+     * @return int month from $date
+     */
+    public static function mysql_month($date)
+    {
+        if (!isset($$date)) {
+            return 0;
+        }
+
+        return (new DateTime($date))->format("m");
+
+    }
 }
