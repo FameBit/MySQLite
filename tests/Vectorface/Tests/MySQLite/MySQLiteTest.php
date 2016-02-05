@@ -141,4 +141,50 @@ class MySQLiteTest extends PHPUnit_Framework_TestCase
             array_slice($results, 10, 10)
         );
     }
+    
+    /** 
+    * Test GREATEST function
+    */
+    public function testGreatest() 
+    {
+        $this->assertEquals(5, MySQLite::mysql_greatest(0, 3, 5));
+        $this->assertEquals('Z', MySQLite::mysql_greatest('A', 'L', 'Z'));
+        try {
+            MySQLite::mysql_greatest();
+            $this->fail("Greater with no arguments is not valid");
+        } catch (\InvalidArgumentException $e) {
+            /* Expected */
+        }
+    }
+
+    /**
+    * Test Year function 
+    */
+    public function testYear()
+    {
+        $this->assertEquals(2014, MySQLite::mysql_year('2014-11-14 07:31:08'));
+        $this->assertEquals(2016, MySQLite::mysql_year('2016-11-14 07:31:08'));
+        $this->assertEquals(1990, MySQLite::mysql_year('1990-11-14 07:31:08'));
+        $this->assertEquals(0, MySQLite::mysql_year(null));
+    }
+
+    /**
+    * Test Month function 
+    */
+    public function testMonth()
+    {
+        $this->assertEquals(11, MySQLite::mysql_month('2014-11-14 07:31:08'));
+        $this->assertEquals(1, MySQLite::mysql_month('2016-01-14 07:31:08'));
+        $this->assertEquals(9, MySQLite::mysql_month('1990-09-14 07:31:08'));
+        $this->assertEquals(0, MySQLite::mysql_month(null));
+    }
+
+    /**
+    * Test from unix time
+    */
+    public function testFromUnixTime()
+    {
+        $this->assertEquals('2016-02-05T19:33:57+0000', MySQLite::mysql_from_unixtime(1454700837));
+        $this->assertEquals('2008-10-22T18:40:37+0000', MySQLite::mysql_from_unixtime(1224700837));
+    }
 }
