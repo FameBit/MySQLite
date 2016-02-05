@@ -62,7 +62,7 @@ trait DateTime
     public static function mysql_from_unixtime($date, $format = null)
     {
         if (!isset($format)) {
-            $format = DateTime::ISO8601;
+            $format = \DateTime::ISO8601;
         }
 
         return (new \DateTime())->setTimestamp($date)->format($format);
