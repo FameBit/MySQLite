@@ -148,7 +148,7 @@ class MySQLiteTest extends PHPUnit_Framework_TestCase
     public function testGreatest() 
     {
         $this->assertEquals(5, MySQLite::mysql_greatest(0, 3, 5));
-        $this->assertEquals(Z, MySQLite::mysql_greatest(A, L, Z));
+        $this->assertEquals('Z', MySQLite::mysql_greatest('A', 'L', 'Z'));
         try {
             MySQLite::mysql_greatest();
             $this->fail("Greater with no arguments is not valid");
