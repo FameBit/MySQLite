@@ -65,7 +65,7 @@ trait DateTime
             $format = DateTime::ISO8601;
         }
 
-        return (new DateTime())->setTimestamp($date)->format($format);
+        return (new \DateTime())->setTimestamp($date)->format($format);
 
     }
 
@@ -81,7 +81,7 @@ trait DateTime
             return 0;
         }
 
-        return (new DateTime($date))->format("Y");
+        return (new \DateTime($date))->format("Y");
 
     }
 
@@ -97,7 +97,7 @@ trait DateTime
             return 0;
         }
 
-        return (new DateTime($date))->format("m");
+        return (new \DateTime($date))->format("m");
 
     }
 }
