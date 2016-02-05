@@ -26,7 +26,8 @@ trait Comparison
      */
     public static function mysql_least()
     {
-        Comparison::checkArgs(func_get_args());
+        $args = func_get_args();
+        static::checkArgs($args);
 
         return min($args);
     }
@@ -38,7 +39,8 @@ trait Comparison
     */
     public static function mysql_greatest()
     {
-        Comparison::checkArgs(func_get_args());
+        $args = func_get_args();
+        static::checkArgs($args);
 
         return max($args);
     }

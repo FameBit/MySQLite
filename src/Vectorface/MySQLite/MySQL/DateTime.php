@@ -86,7 +86,7 @@ trait DateTime
      */
     public static function mysql_year($date)
     {
-        return DateTime::dateWithFormat($date,"Y");
+        return static::dateWithFormat($date,"Y");
     }
 
     /**
@@ -97,7 +97,7 @@ trait DateTime
      */
     public static function mysql_month($date)
     {
-        return DateTime::dateWithFormat($date,"m");
+        return static::dateWithFormat($date,"m");
 
     }
 }
