@@ -68,4 +68,20 @@ trait DateTime
         return (new DateTime())->setTimestamp($date)->format($format);
 
     }
+
+    /**
+     * YEAR - returns the year from a date
+     *
+     * @param datetime $date date to get year from
+     * @return int year from $date
+     */
+    public static function mysql_year($date)
+    {
+        if (!isset($$date)) {
+            return 0;
+        }
+
+        return (new DateTime($date))->format("Y");
+
+    }
 }
