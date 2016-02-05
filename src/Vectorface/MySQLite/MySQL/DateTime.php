@@ -77,7 +77,7 @@ trait DateTime
      */
     public static function mysql_year($date)
     {
-        if (!isset($$date)) {
+        if (!isset($date)) {
             return 0;
         }
 
@@ -93,7 +93,7 @@ trait DateTime
      */
     public static function mysql_month($date)
     {
-        if (!isset($$date)) {
+        if (!isset($date)) {
             return 0;
         }
 
