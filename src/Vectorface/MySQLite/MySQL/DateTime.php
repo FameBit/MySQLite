@@ -69,6 +69,15 @@ trait DateTime
 
     }
 
+    private static function dateWithFormat($date, $format)
+    {
+        if (!isset($date)) {
+            return 0;
+        }
+
+        return (new \DateTime($date))->format($format);
+    }
+
     /**
      * YEAR - returns the year from a date
      *
@@ -77,12 +86,7 @@ trait DateTime
      */
     public static function mysql_year($date)
     {
-        if (!isset($date)) {
-            return 0;
-        }
-
-        return (new \DateTime($date))->format("Y");
-
+        return DateTime::dateWithFormat($date,"Y");
     }
 
     /**
@@ -93,11 +97,7 @@ trait DateTime
      */
     public static function mysql_month($date)
     {
-        if (!isset($date)) {
-            return 0;
-        }
-
-        return (new \DateTime($date))->format("m");
+        return DateTime::dateWithFormat($date,"m");
 
     }
 }
