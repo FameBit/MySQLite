@@ -26,4 +26,18 @@ trait Comparison
 
         return min($args);
     }
+    
+    /**
+    * GREATEST - Return greatest argument
+    * @param mixed ... One or more arguments
+    * @return mixed Greatest argument
+    */
+    public static function mysql_greatest()
+    {
+        $args = func_get_args();
+        if (!count($args)) {
+            throw new InvalidArgumentException('No arguments provided to SQLite GREATEST');
+        }
+        return max($args);
+    }
 }

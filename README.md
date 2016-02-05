@@ -1,7 +1,7 @@
 MySQLite
 ========
-[![Build Status](https://travis-ci.org/Vectorface/MySQLite.svg?branch=master)](https://travis-ci.org/Vectorface/MySQLite)
-[![Code Coverage](https://scrutinizer-ci.com/g/Vectorface/MySQLite/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/Vectorface/MySQLite/?branch=master)
+[![Build Status](https://travis-ci.org/FameBit/MySQLite.svg?branch=master)](https://travis-ci.org/FameBit/MySQLite)
+[![Code Coverage](https://scrutinizer-ci.com/g/FameBit/MySQLite/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/FameBit/MySQLite/?branch=master)anch=master)
 
 MySQLite is an easy way to add MySQL functions to SQLite accessed through PDO. This can be useful for testing and development where an SQLite database may be more practical than a real MySQL database.
 
