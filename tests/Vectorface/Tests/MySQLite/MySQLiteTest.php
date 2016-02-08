@@ -141,6 +141,20 @@ class MySQLiteTest extends PHPUnit_Framework_TestCase
             array_slice($results, 10, 10)
         );
     }
+
+    /**
+     * Test ISNULL function
+     */
+    public function testIsNull()
+    {
+        $this->assertEquals(1, MySQLite::mysql_isnull(null));
+        $this->assertEquals(0, MySQLite::mysql_isnull(4));
+        $this->assertEquals(0, MySQLite::mysql_isnull(21.34));
+        $this->assertEquals(0, MySQLite::mysql_isnull('words'));
+        $this->assertEquals(0, MySQLite::mysql_isnull('null'));
+        $this->assertEquals(0, MySQLite::mysql_isnull(false));
+        $this->assertEquals(0, MySQLite::mysql_isnull(true));
+    }
     
     /** 
     * Test GREATEST function
