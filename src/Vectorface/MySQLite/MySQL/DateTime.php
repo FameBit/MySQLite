@@ -20,6 +20,16 @@ trait DateTime
     }
 
     /**
+     * CURDATE - Returns the current date
+     *
+     * @return string The current date, in the format YYYY-MM-DD
+     */
+    public static function mysql_curdate()
+    {
+        return date("Y-m-d");
+    }
+
+    /**
      * TO_DAYS - Return the date argument converted to days
      *
      * @param string $date A date to be converted to days.
@@ -51,7 +61,7 @@ trait DateTime
 
         return strtotime($date);
     }
-    
+
     /**
      * FROM_UNIXTIME - returns a date /datetime from a version of unix_timestamp
      *
