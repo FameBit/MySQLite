@@ -30,6 +30,19 @@ trait DateTime
     }
 
     /**
+     * DATEDIFF - Returns the # of days between 2 dates
+     * @param $date1 - Date
+     * @param $date2
+     * @return int $date1 - $date2, expressed as the number of full days.
+     */
+    public static function mysql_datediff($date1, $date2) {
+        $dateTime1 = new \DateTime($date1);
+        $dateTime2 = new \DateTime($date2);
+
+        return $dateTime1->diff($dateTime2)->days;
+    }
+
+    /**
      * TO_DAYS - Return the date argument converted to days
      *
      * @param string $date A date to be converted to days.
