@@ -14,6 +14,8 @@ use Vectorface\Tests\MySQLite\Util\FakePDO;
  */
 class MySQLiteTest extends PHPUnit_Framework_TestCase
 {
+    const Y_M_D_FORMAT_STRING = 'Y-m-d';
+
     /**
      * Test miscellaneous compatibility functions.
      */
@@ -48,6 +50,12 @@ class MySQLiteTest extends PHPUnit_Framework_TestCase
         $this->assertEquals(time(), MySQLite::mysql_unix_timestamp());
         $time = time();
         $this->assertEquals($time, MySQLite::mysql_unix_timestamp(date("Y-m-d H:i:s")));
+
+        $date1 = new \DateTime();
+        $date2 = new \DateTime('2 days ago');
+        $this->assertEquals(2, MySQLite::mysql_datediff($date1->format(self::Y_M_D_FORMAT_STRING), $date2->format(self::Y_M_D_FORMAT_STRING)));
+
+        $this->assertEquals($date1->format(self::Y_M_D_FORMAT_STRING), MySQLite::mysql_curdate());
     }
 
     /**
