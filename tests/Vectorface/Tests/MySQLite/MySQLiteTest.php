@@ -32,6 +32,13 @@ class MySQLiteTest extends PHPUnit_Framework_TestCase
         } catch (\InvalidArgumentException $e) {
             /* Expected */
         }
+        $this->assertEquals(1, MySQLite::mysql_isnull(null));
+        $this->assertEquals(0, MySQLite::mysql_isnull(4));
+        $this->assertEquals(0, MySQLite::mysql_isnull(21.34));
+        $this->assertEquals(0, MySQLite::mysql_isnull('words'));
+        $this->assertEquals(0, MySQLite::mysql_isnull('null'));
+        $this->assertEquals(0, MySQLite::mysql_isnull(false));
+        $this->assertEquals(0, MySQLite::mysql_isnull(true));
 
         /* Flow control functions */
         $this->assertEquals("foo", MySQLite::mysql_if(true, "foo", "bar"));

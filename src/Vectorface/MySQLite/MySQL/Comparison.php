@@ -34,6 +34,20 @@ trait Comparison
     }
 
     /**
+     * ISNULL - Returns 1 if the expression is null, 0 otherwise.
+     *
+     * @param $expr
+     * @return int
+     */
+    public static function mysql_isnull($expr)
+    {
+        if (is_null($expr)) {
+            return 1;
+        }
+        return 0;
+    }
+
+    /**
      * LEAST - Return the smallest argument
      *
      * @param mixed ... One or more numeric arguments.
